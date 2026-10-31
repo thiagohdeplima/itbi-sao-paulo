@@ -62,22 +62,30 @@ in
     };
   };
 
-  processes.nominatim = {
-    after = [ "devenv:processes:postgres" ];
+  processes = {
+    jupyter = {
+      after = [ "devenv:processes:nominatim" ];
 
-    exec = ''
-      mkdir -p "$NOMINATIM_PROJECT_DIR"
+      exec = "poetry run jupyter lab --ServerApp.token=''";
+    };
 
-      cd "$NOMINATIM_PROJECT_DIR"
+    nominatim = {
+      after = [ "devenv:processes:postgres" ];
 
-      exec ${nominatimServer}/bin/uvicorn \
-        nominatim_api.server.falcon.server:run_wsgi --factory \
-        --host 127.0.0.1 --port 8080 --workers "$NOMINATIM_WORKERS" \
-        --no-access-log
-    '';
-    ready.http.get = {
-      port = 8080;
-      path = "/status";
+      exec = ''
+        mkdir -p "$NOMINATIM_PROJECT_DIR"
+
+        cd "$NOMINATIM_PROJECT_DIR"
+
+        exec ${nominatimServer}/bin/uvicorn \
+          nominatim_api.server.falcon.server:run_wsgi --factory \
+          --host 127.0.0.1 --port 8080 --workers "$NOMINATIM_WORKERS" \
+          --no-access-log
+      '';
+      ready.http.get = {
+        port = 8080;
+        path = "/status";
+      };
     };
   };
 
