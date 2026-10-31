@@ -1,46 +1,65 @@
 { pkgs, lib, config, inputs, ... }:
 
 {
-  # https://devenv.sh/basics/
-  env.GREET = "devenv";
+  packages = with pkgs; [ postgresql.pkgs.postgis osm2pgsql ];
 
-  # https://devenv.sh/packages/
-  packages = [ pkgs.git ];
+  services.postgres = {
+    enable = true;
+    port   = 61213;
 
-  # https://devenv.sh/languages/
-  # languages.rust.enable = true;
+    initialDatabases = [
+      {
+        name = "appdtb";
+        user = "appusr";
+        pass = "abc123";
 
-  # https://devenv.sh/processes/
-  # processes.dev.exec = "${lib.getExe pkgs.watchexec} -n -- ls -la";
+        initialSQL = ''
+          CREATE EXTENSION postgis;
+          CREATE EXTENSION hstore;
+        '';
+      }
+    ];
 
-  # https://devenv.sh/services/
-  # services.postgres.enable = true;
+    extensions = pgFinal: [
+      pkgs.postgresql.pkgs.postgis
+    ];
 
-  # https://devenv.sh/scripts/
-  scripts.hello.exec = ''
-    echo hello from $GREET
-  '';
+    initialScript = ''
+      CREATE ROLE postgres WITH LOGIN SUPERUSER;
+    '';
+  };
 
-  # https://devenv.sh/basics/
-  enterShell = ''
-    hello         # Run scripts directly
-    git --version # Use packages
-  '';
+  languages = {
+    python = {
+      enable = true;
 
-  # https://devenv.sh/tasks/
-  # tasks = {
-  #   "myproj:setup".exec = "mytool build";
-  #   "devenv:enterShell".after = [ "myproj:setup" ];
-  # };
+      poetry = {
+        enable = true;
 
-  # https://devenv.sh/tests/
-  enterTest = ''
-    echo "Running tests"
-    git --version | grep --color=auto "${pkgs.git.version}"
-  '';
+        install.enable  = true;
+        activate.enable = true;
+      };
+    };
+  };
 
-  # https://devenv.sh/git-hooks/
-  # git-hooks.hooks.shellcheck.enable = true;
+  scripts = {
+    download-and-import-osm = {
+      exec = ''
+        DEFAULT_SRC="https://download.geofabrik.de/south-america/brazil/sudeste-latest.osm.pbf"
+        DEFAULT_DST="$DEVENV_ROOT/tmp/sudeste-latest.osm.pbf"
 
-  # See full reference at https://devenv.sh/reference/options/
+        if [ "$1" != "" ]; then
+          DEFAULT_SRC="$1"
+          DEFAULT_DST="$DEVENV_ROOT/tmp"
+        fi
+
+        if [ ! -d "$(dirname $DEFAULT_DST)" ]; then
+          mkdir -p "$DEFAULT_DST"
+        fi
+
+        wget -c $DEFAULT_SRC -O $DEFAULT_DST && \
+          osm2pgsql -d appdtb -U appusr --create --slim --hstore --latlong $DEFAULT_DST
+      '';
+    };
+  };
 }
