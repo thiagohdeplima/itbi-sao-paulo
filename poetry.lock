@@ -1894,6 +1894,70 @@ files = [
 ]
 
 [[package]]
+name = "pygeohash"
+version = "3.5.1"
+description = "Python module for interacting with geohashes"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "pygeohash-3.5.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:ce1af77b2535f0fe032e5d5bdda61193841fc5984f9a4ce7ef75eddf455c902b"},
+    {file = "pygeohash-3.5.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:cba672bd6ebfcd136ce86380468bc99836a0c2db1ecee6258745d2927f8c972b"},
+    {file = "pygeohash-3.5.1-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:7e046f7dbf4b7f417c98dbae543dcff2167e08ed039314d5aa1f1581edb546c5"},
+    {file = "pygeohash-3.5.1-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:63bddca2a5793b44f2d7bb5451d8b9164a1d3ca7643c97a2095b7d1ccca0c47d"},
+    {file = "pygeohash-3.5.1-cp310-cp310-win32.whl", hash = "sha256:452a6249b4d76c6a28c89a7e20518f3804a4a218c0ca73ecfe4157453b3c2daa"},
+    {file = "pygeohash-3.5.1-cp310-cp310-win_amd64.whl", hash = "sha256:4422bdad6dc71ef24045289c9ba9fec7077de923ddc5eb327c249eaff33f4029"},
+    {file = "pygeohash-3.5.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:0d418a3faeb52012887de1c71d92319a993e964e7541090b4c65d736223d9825"},
+    {file = "pygeohash-3.5.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:a13fb55175fa9733c639f32b929a7d5262dd10d91b39da038213a527d2daca81"},
+    {file = "pygeohash-3.5.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:341a4d292b25e20659bdc77ae3268d2fe6e575a73558a51801296ebb46b40fef"},
+    {file = "pygeohash-3.5.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:764fd30edb5c65bb12bf3f761172f8bda139c5bed1bd91c18c3ad21b54eb6794"},
+    {file = "pygeohash-3.5.1-cp311-cp311-win32.whl", hash = "sha256:4132b8b1f67a2303a09747081331af04e9ea5bd9241f9c2c07ab095e63beea97"},
+    {file = "pygeohash-3.5.1-cp311-cp311-win_amd64.whl", hash = "sha256:3940da95ec7c515010fde101d4ce88942e1ac6980ea02806ea384d2b09b5dd62"},
+    {file = "pygeohash-3.5.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:a1777521d760e2747144e58b781d4847b4d5106609e8c5969c80e9e280140545"},
+    {file = "pygeohash-3.5.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:321f39893aadcd60f60b9dde70b6eff5b07a83634e0fe27f075a7cb3433dd002"},
+    {file = "pygeohash-3.5.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:f1bce781b0cd6eb10039f2d0c3bb1a11153bbfe9a43678b6e635ca42abfe114d"},
+    {file = "pygeohash-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:d0981d476978b6f8e814646a5606d2985e81048ff683458beb31490034fb744c"},
+    {file = "pygeohash-3.5.1-cp312-cp312-win32.whl", hash = "sha256:f3b3e1d48454733f9983d1878300decec533257d380f5b05dfa01c53208ff0d6"},
+    {file = "pygeohash-3.5.1-cp312-cp312-win_amd64.whl", hash = "sha256:ef40fc6d3763b62d5605f3af6220e69f0a2fb7c509995a47aaeae7b7debb5e42"},
+    {file = "pygeohash-3.5.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:b8f0665aed441a312633fb53d20f841f9bde7049cf512245c55c4ecaa7f838f7"},
+    {file = "pygeohash-3.5.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:ea27d508c9aae46e974a10677ae04cb7ab808ae7d844acec9a8a6ef92ba5017f"},
+    {file = "pygeohash-3.5.1-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:f617af8df1e5425a9a8bdd905bf2a00962c097289e60309906d9715d8cd09a51"},
+    {file = "pygeohash-3.5.1-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:2d2b6a4013d375a4d5be0b9621b787f825000992e7e2f7dfc5ae21981d1a2ca4"},
+    {file = "pygeohash-3.5.1-cp313-cp313-win32.whl", hash = "sha256:b204e483e3f766186c0929c3350c9b3f68150352c0f8a175a698ad29173a154c"},
+    {file = "pygeohash-3.5.1-cp313-cp313-win_amd64.whl", hash = "sha256:6de7017e3efcd1480ad2d80891737a2e7da81a1740025af426a1872c20a86ef5"},
+    {file = "pygeohash-3.5.1-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:da80e608c6a75ac4caf4c8ffe85a48ed0cbfea8915aebf3ae309b9b9c85acf9d"},
+    {file = "pygeohash-3.5.1-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:387bbd2383e6e09c97cbbc30f923375bf13dcad822954dc8fb0a52361544f2f7"},
+    {file = "pygeohash-3.5.1-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:c2e08582bb46d6d80667d2ad8255eae41f73251c0a0e4ee20d5c90bab956a65c"},
+    {file = "pygeohash-3.5.1-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:6d2a8a1820e2b8646d42aca133a23bde8bfa9f0b43c8a6841720f6ba568aa42c"},
+    {file = "pygeohash-3.5.1-cp314-cp314-win32.whl", hash = "sha256:65f0077b60cffd7114c0e89e52566f4465ab275bccf95d84604da7d1dea6ec35"},
+    {file = "pygeohash-3.5.1-cp314-cp314-win_amd64.whl", hash = "sha256:2979d514f4451e4e9585950483d2d152964b0451aafafca2b8fc3b1995b8d906"},
+    {file = "pygeohash-3.5.1-cp314-cp314t-macosx_10_15_x86_64.whl", hash = "sha256:9a914923adee1f90c4c05887b738aa1b97e72bc8a5ccde82b9e3cad381e429ba"},
+    {file = "pygeohash-3.5.1-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:201a0a698d4762e5d8660bc109fa87cf23d7cc8b54c2900015fd4a23b9d60e2f"},
+    {file = "pygeohash-3.5.1-cp314-cp314t-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:c1fe80a5c917984ca2cc8086b8a4d3e476916d36c230cd3324c4cc1e16de056a"},
+    {file = "pygeohash-3.5.1-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:f0619790afdd22a195255a1d0a91ce9e18ec339c1a7a394fc300397f1165ff96"},
+    {file = "pygeohash-3.5.1-cp314-cp314t-win32.whl", hash = "sha256:113240a1f1a32e85332a3b95867d3914440d54f900a16d114a02a77d68c52df7"},
+    {file = "pygeohash-3.5.1-cp314-cp314t-win_amd64.whl", hash = "sha256:344b543114bc73d55e0cfe2d2fd4ce350118ee4f45bc4dac3d281213c71926ba"},
+    {file = "pygeohash-3.5.1-cp315-cp315-macosx_10_15_x86_64.whl", hash = "sha256:ad4ff07e049023f7e64e3f2ca59b8539e809307a7111f6d42e579f23cd0ab730"},
+    {file = "pygeohash-3.5.1-cp315-cp315-macosx_11_0_arm64.whl", hash = "sha256:2374bd1adfa6c53eeafd5dbf190216a13686577315919456a984356bc98d6c3a"},
+    {file = "pygeohash-3.5.1-cp315-cp315-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:6ad494c44f42828fb15bc53bf0c63a2c860313e4831f1812a793b84d8192499b"},
+    {file = "pygeohash-3.5.1-cp315-cp315-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b0e3f982ce2c9138424ab82a5779b50a056e47211d20f607aeacf233d6b4165b"},
+    {file = "pygeohash-3.5.1-cp315-cp315-win32.whl", hash = "sha256:3836fee45c80e987d29852cbb0384cf0d820f4f07aea1f0789ef09b327b30a49"},
+    {file = "pygeohash-3.5.1-cp315-cp315-win_amd64.whl", hash = "sha256:fb2c580da182d069825737a33322d03c63b6597143237923de48e52fdf098585"},
+    {file = "pygeohash-3.5.1-cp315-cp315t-macosx_10_15_x86_64.whl", hash = "sha256:827a2561a1825bb857d52945d8ab0e35bcaf86a3f3b30d225d581c5e47d696eb"},
+    {file = "pygeohash-3.5.1-cp315-cp315t-macosx_11_0_arm64.whl", hash = "sha256:0a28648616cbdf4c3bb70efed6d1341c9a16abe4d855c60636a65a6a78fbeff4"},
+    {file = "pygeohash-3.5.1-cp315-cp315t-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:18fce3cc0149fa92977f0e390bbb77020e7f5001cee30b4c5a7919d6910e6cda"},
+    {file = "pygeohash-3.5.1-cp315-cp315t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:9412003061319f1c7a8915a613b1a3b33710845421ea7c520db228dd84e1cfeb"},
+    {file = "pygeohash-3.5.1-cp315-cp315t-win32.whl", hash = "sha256:7840be5f72033dca509f752d54814789e6165d2711f175050d2274b4d3a146ae"},
+    {file = "pygeohash-3.5.1-cp315-cp315t-win_amd64.whl", hash = "sha256:25f3189bf7db4b885b30e2bf2e1d84eb7e670b72707307fb4121e1627d49ec7e"},
+    {file = "pygeohash-3.5.1.tar.gz", hash = "sha256:d9a6ed89cfb023e0eba041a06ed676444413450be52e6a3b2c89b4a7908673ec"},
+]
+
+[package.extras]
+benchmark = ["geohash-tools", "geohashr", "geolib", "libgeohash", "pygeohash-fast", "pytest-benchmark", "python-geohash"]
+dev = ["build (>=0.10.0)", "folium (>=0.14.0)", "matplotlib (>=3.5.0)", "mutmut (>=2.4.4)", "mypy (>=1.8.0)", "numpy (<2.5)", "pandas", "pandas-stubs", "pytest (>=7.0.0)", "pytest-benchmark", "pytest-cov (>=4.0.0)", "requests (>=2.28.0)", "ruff (>=0.0.262)", "sphinx (>=6.0.0)", "sphinx-rtd-dark-mode (>=1.3.0)", "sphinx-rtd-theme (>=1.0.0)", "sphinxcontrib-googleanalytics (>=0.4)", "tox (>=4.0.0)", "twine (>=4.0.0)", "types-requests (>=2.31.0)", "types-setuptools (>=69.0.0)"]
+viz = ["folium (>=0.14.0)", "matplotlib (>=3.5.0)"]
+
+[[package]]
 name = "pygments"
 version = "2.21.0"
 description = "Pygments is a syntax highlighting package written in Python."
@@ -2714,4 +2778,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.14"
-content-hash = "3c0e1470688984402e8525348c8fdd890beb9ab9af1345ea3072fd53288ddfbf"
+content-hash = "f7e354914ce1de46dc3f7de082984b0a55c6134d0440307d0d03168d6a050e3d"
