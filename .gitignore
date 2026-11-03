@@ -4,6 +4,7 @@ tmp/*
 # Python bytecode
 __pycache__/
 *.py[cod]
+.ipynb_checkpoints
 
 # Devenv
 .devenv*
