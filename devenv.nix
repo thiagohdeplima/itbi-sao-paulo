@@ -21,7 +21,7 @@ let
     "pgsql:dbname=${database.name};host=${config.env.PGHOST};port=${toString config.env.PGPORT};user=${database.user};password=${database.password}";
 in
 {
-  packages = with pkgs; [ postgresql.pkgs.postgis osm2pgsql nominatim ];
+  packages = with pkgs; [ postgresql.pkgs.postgis osm2pgsql nominatim git ];
 
   env = {
     NOMINATIM_DATABASE_DSN = nominatimDsn;
