@@ -1,7 +1,13 @@
 """Import and geocode São Paulo property transfer data."""
 
 from .bacen import FinancingClient, RealEstateFinancingClient, SGSClient, SelicClient
-from .bacen.monthly import MonthlyEconomicClient, enrich_transactions
+
+from .bacen.monthly import (
+    MonthlyEconomicClient,
+    enrich_transactions,
+    load_or_fetch_monthly_indicators,
+)
+
 from .downloads import download_workbook, download_workbooks
 from .geocoding import GeocodingClient, GeocodingConfig
 from .ingestion import TransactionImport, load_transactions
@@ -20,5 +26,6 @@ __all__ = [
     "download_workbooks",
     "enrich_transactions",
     "load_transactions",
+    "load_or_fetch_monthly_indicators",
     "select_transactions",
 ]

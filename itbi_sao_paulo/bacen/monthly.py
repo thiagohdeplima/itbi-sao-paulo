@@ -1,10 +1,19 @@
 """Load economic observations once and enrich transactions by calendar month."""
 
 import pandas as pd
+from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 from .financing import RealEstateFinancingClient
 from .selic import SelicClient
 from .sgs import SGSClient
+
+MONTHLY_INDICATOR_COLUMNS = (
+    "transaction_month",
+    "selic_target_annual_pct_monthly_mean",
+    "selic_effective_daily_pct_monthly_mean",
+    "real_estate_financing_brl_millions",
+)
 
 
 def transaction_months(data: pd.DataFrame) -> pd.Series:
@@ -68,3 +77,39 @@ def enrich_transactions(data: pd.DataFrame, monthly_indicators: pd.DataFrame) ->
     for column in lookup.columns:
         result[column] = result["transaction_month"].map(lookup[column])
     return result
+
+
+def load_or_fetch_monthly_indicators(
+    data: pd.DataFrame,
+    cache_path: str | Path = "_data/cache/monthly_economic_indicators.csv",
+    *,
+    client: MonthlyEconomicClient | None = None,
+    refresh: bool = False,
+) -> pd.DataFrame:
+    """Reuse the monthly CSV cache or fetch and save observations when absent."""
+    cache_path = Path(cache_path)
+    if cache_path.exists() and not refresh:
+        indicators = pd.read_csv(cache_path, dtype={"transaction_month": "string"})
+        if tuple(indicators.columns) != MONTHLY_INDICATOR_COLUMNS:
+            raise ValueError(f"Unexpected monthly indicator columns in {cache_path}.")
+        indicators["transaction_month"] = pd.PeriodIndex(
+            indicators["transaction_month"], freq="M"
+        )
+        return indicators
+
+    active_client = client if client is not None else MonthlyEconomicClient()
+    indicators = active_client.fetch_for_transactions(data, refresh=refresh)
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path = None
+    try:
+        with NamedTemporaryFile(
+            mode="w", encoding="utf-8", newline="", dir=cache_path.parent,
+            prefix=f".{cache_path.stem}.", suffix=".part", delete=False,
+        ) as temporary_file:
+            temporary_path = Path(temporary_file.name)
+            indicators.to_csv(temporary_file, index=False)
+        temporary_path.replace(cache_path)
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
+    return indicators
