@@ -1,6 +1,10 @@
 _data
 tmp/*
 
+# Python bytecode
+__pycache__/
+*.py[cod]
+
 # Devenv
 .devenv*
 devenv.local.nix
